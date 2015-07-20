@@ -1,0 +1,39 @@
+
+快捷键名称   所具备的功能
+Ctrl+M Ctrl+N   新建邮件
+Ctrl+O  打开邮件 （在新窗口）
+Ctrl+W  关闭窗口
+Del 删除
+Ctrl+Y  恢复
+F7  启用光标浏览
+Ctrl+E  作为新邮件编辑
+*   展开所有话题
+\   收缩所有话题
+Ctrl+F  在当前邮件中查找文本
+Ctrl+L  转发邮件
+Ctrl+T  接收当前帐户的新邮件
+Ctrl+Shift+T    接收所有帐户的新邮件
+F   下一封邮件
+N   下一封未读邮件
+T   下一未读话题
+B   前一封邮件
+P   前一封未读邮件
+0   标记: 无
+1   标记: 重要
+2   标记: 工作
+3   标记: 个人
+4   标记: 计划
+5   标记: 稍后
+M   标记邮件为已读/未读
+R   标记线索为已读
+Ctrl+Shift+C    标记所有为已读
+Ctrl+U  邮件源信息
+Ctrl+R  回复邮件（仅回复发送者）
+Ctrl+Y  回复全部（回复所有收件人）
+Ctrl+S  将邮件存为文件
+Ctrl+Shift+F    搜索邮件
+Ctrl+Enter  立即发送邮件
+Ctrl+Shift+Enter    稍后发送邮件
+Ctrl+T  发送接收所有邮件
+Esc 停止
+Ctrl+Q  退出
