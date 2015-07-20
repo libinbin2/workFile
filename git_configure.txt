@@ -1,0 +1,85 @@
+ssh用于验证，https://github.com/ 需要，
+
+https://www.cloudcontrol.com/onboarding/ssh也需要。
+
+
+
+git使用记录
+
+git是分布式的代码管理工具，远程的代码管理是基于ssh的，所以要使用远程的git则需要ssh的配置。
+
+github的ssh配置如下：
+
+
+一 、
+
+设置git的user name和email：
+
+$ git config --global user.name "ShichaoXu"
+
+$ git config --global user.email "gudujianjsk@gmail.com"
+
+查看git配置
+
+$git config --lis
+
+二、生成SSH密钥过程：
+1.查看是否已经有了ssh密钥：cd ~/.ssh
+如果没有密钥则不会有此文件夹，有则备份删除
+2.生存密钥：
+
+  $ ssh-keygen -t rsa -C "gudujianjsk@gmail.com" //  -C comment
+  按3个回车，密码为空这里一般不使用密钥。
+[plain] view plaincopyprint?在CODE上查看代码片派生到我的代码片
+Your identification has been saved in /home/tekkub/.ssh/id_rsa.
+Your public key has been saved in /home/tekkub/.ssh/id_rsa.pub.
+The key fingerprint is:
+………………
+ 最后得到了两个文件：id_rsa和id_rsa.pub
+
+3.添加 私密钥 到ssh：ssh-add id_rsa
+需要之前输入密码（如果有）。
+
+4.在github上添加ssh密钥，这要添加的是“id_rsa.pub”里面的公钥。
+打开 http://github.com,登陆xushichao，然后添加ssh。
+注意在这里由于直接复制粘帖公钥，可能会导致增加一些字符或者减少些字符，最好用系统工具xclip来做这些事情。
+xclip -selection c  id_rsa.pub
+
+5.测试：  ssh git@github.com
+[plain] view plaincopyprint?在CODE上查看代码片派生到我的代码片
+PTY allocation request failed on channel 0
+Hi xushichao! You've successfully authenticated, but GitHub does not provide shell access.
+Connection to github.com closed.
+
+
+三、 开始使用github
+1.获取源码：
+$ git clone git@github.com:username/gitproj.git
+2.这样你的机器上就有一个repo了。
+3.git于svn所不同的是git是分布式的，没有服务器概念。所有的人的机器上都有一个repo，每次提交都是给自己机器的repo
+仓库初始化：
+
+也可一用如下方式创建git 工程：
+git init
+生成快照并存入项目索引：
+git add file
+
+还有git rm,git mv等等…
+项目索引提交：
+git commit
+
+4.协作编程：
+将本地repo于远程的origin的repo合并，
+推送本地更新到远程：
+git push origin master
+更新远程更新到本地：
+git pull origin master
+
+
+
+1)    在一个本地工程下 git checkout 到一个新分支之后，对新分支做了些修改之后需要用 git add 增加这些修改，然后再
+        git commit -m 提交修改。之后才可以 git checkout 到一个新的分支，否则会把checkout到的新分支也给修改。
+
+2)    git branch new master 基于master 分支创建一个新的分支 new。当切换到 master 分支后做了些修改并 commit之后，
+    再 chekcout 到 new 分支，此时用 git merge --squash master.这样可以把 master 分支的修改合并到 new 分支上。
+    见 《版本控制之道----使用git》 合并分支间的修改一章节。
